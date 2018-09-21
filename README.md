@@ -31,6 +31,9 @@ writeDump( entities );
 #### `entities( string text = '', string url = '', string language )`
 Extracts different types of notable entities from a document. You must provide either the `text` or `url` argument.
 
+#### `sentiment( string text = '', string url = '', string language, string mode )`
+Determines the tone of a piece of text such as a tweet, a review or an article, and for short text, whether it is subjective or objective. You must provide either the `text` or `url` argument. Be sure to use the appropriate mode parameter based on your input text: tweet for short text such as social media updates and document for longer text such as a review or an article. The default `mode` is _tweet_.
+
 # Questions
 For questions that aren't about bugs, feel free to hit me up on the [CFML Slack Channel](http://cfml-slack.herokuapp.com); I'm @mjclemente. You'll likely get a much faster response than creating an issue here.
 

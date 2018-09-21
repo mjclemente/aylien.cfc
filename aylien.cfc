@@ -47,6 +47,26 @@ component displayname="ayliencfc"  {
   }
 
   /**
+  * https://docs.aylien.com/textapi/endpoints/#sentiment-analysis
+  * @hint Determines the tone of a piece of text such as a tweet, a review or an article, and for short text, whether it is subjective or objective.
+  * @mode Be sure to use the appropriate mode parameter based on your input text: tweet for short text such as social media updates and document for longer text such as a review or an article. Subjectivity analysis is currently only available in tweet mode, and it usually works best with sentence-level input.
+  */
+  public struct function sentiment( string text = '', string url = '', string language, string mode ) {
+    var params = {
+      'language' : language ?: 'auto',
+      'mode' : mode ?: 'tweet'
+    };
+
+    if ( text.len() )
+      params[ 'text' ] = text;
+
+    if ( arguments.url.len() )
+      params[ 'url' ] = arguments.url;
+
+    return apiCall( 'POST', '/sentiment', params );
+  }
+
+  /**
   * https://docs.aylien.com/textapi/endpoints/#entity-extraction
   * @hint Extracts different types of notable entities from a document
   */
