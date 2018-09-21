@@ -68,7 +68,7 @@ component displayname="ayliencfc"  {
 
   /**
   * https://docs.aylien.com/textapi/endpoints/#entity-extraction
-  * @hint Extracts different types of notable entities from a document
+  * @hint Extracts named entities (people, organizations and locations) and values (URLs, emails, telephone numbers, currency amounts and percentages) from a document
   */
   public struct function entities( string text = '', string url = '', string language ) {
     var params = {
@@ -82,6 +82,24 @@ component displayname="ayliencfc"  {
       params[ 'url' ] = arguments.url;
 
     return apiCall( 'POST', '/entities', params );
+  }
+
+  /**
+  * https://docs.aylien.com/textapi/endpoints/#concept-extraction
+  * @hint Extracts different types of notable entities mentioned in a document, disambiguates and cross link them to DBPedia and Linked Data entities, along with their semantic types (including DBPedia and schema.org).
+  */
+  public struct function concepts( string text = '', string url = '', string language ) {
+    var params = {
+      'language' : language ?: 'auto'
+    };
+
+    if ( text.len() )
+      params[ 'text' ] = text;
+
+    if ( arguments.url.len() )
+      params[ 'url' ] = arguments.url;
+
+    return apiCall( 'POST', '/concepts', params );
   }
 
   // PRIVATE FUNCTIONS

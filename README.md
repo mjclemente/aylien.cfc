@@ -29,7 +29,10 @@ writeDump( entities );
 ## Reference Manual
 
 #### `entities( string text = '', string url = '', string language )`
-Extracts different types of notable entities from a document. You must provide either the `text` or `url` argument.
+Extracts named entities (people, organizations and locations) and values (URLs, emails, telephone numbers, currency amounts and percentages) from a document. You must provide either the `text` or `url` argument.
+
+#### `concepts( string text = '', string url = '', string language )`
+Extracts different types of notable entities mentioned in a document, disambiguates and cross link them to DBPedia and Linked Data entities, along with their semantic types (including DBPedia and schema.org). You must provide either the `text` or `url` argument.
 
 #### `sentiment( string text = '', string url = '', string language, string mode )`
 Determines the tone of a piece of text such as a tweet, a review or an article, and for short text, whether it is subjective or objective. You must provide either the `text` or `url` argument. Be sure to use the appropriate mode parameter based on your input text: tweet for short text such as social media updates and document for longer text such as a review or an article. The default `mode` is _tweet_.
