@@ -102,6 +102,24 @@ component displayname="ayliencfc"  {
     return apiCall( 'POST', '/concepts', params );
   }
 
+  /**
+  * https://docs.aylien.com/textapi/endpoints/#hashtag-suggestion
+  * @hint Using Hashtag Suggestion, you can automatically generate a list of highly-relevant hashtags that will help you get more exposure for your content on Social Media.
+  */
+  public struct function hashtags( string text = '', string url = '', string language ) {
+    var params = {
+      'language' : language ?: 'auto'
+    };
+
+    if ( text.len() )
+      params[ 'text' ] = text;
+
+    if ( arguments.url.len() )
+      params[ 'url' ] = arguments.url;
+
+    return apiCall( 'POST', '/hashtags', params );
+  }
+
   // PRIVATE FUNCTIONS
   private struct function apiCall(
     required string httpMethod,
