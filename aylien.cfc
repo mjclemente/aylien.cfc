@@ -177,7 +177,7 @@ component displayname="ayliencfc"  {
   private struct function getBaseHttpHeaders() {
     return {
       'Accept' : 'application/json',
-      'Content-Type' : 'application/json',
+      'Content-Type' : 'application/x-www-form-urlencoded',
       'X-AYLIEN-TextAPI-Application-Key' : variables.applicationKey,
       'X-AYLIEN-TextAPI-Application-ID' : variables.applicationId,
       'User-Agent' : 'ayliencfc/#variables._ayliencfc_version# (CFML)'
