@@ -63,7 +63,7 @@ component displayname="ayliencfc"  {
     if ( arguments.url.len() )
       params[ 'url' ] = arguments.url;
 
-    return apiCall( 'POST', '/sentiment', params );
+    return apiCall( 'POST', '/sentiment', {}, params );
   }
 
   /**
@@ -81,7 +81,7 @@ component displayname="ayliencfc"  {
     if ( arguments.url.len() )
       params[ 'url' ] = arguments.url;
 
-    return apiCall( 'POST', '/entities', params );
+    return apiCall( 'POST', '/entities', {}, params );
   }
 
   /**
@@ -99,7 +99,7 @@ component displayname="ayliencfc"  {
     if ( arguments.url.len() )
       params[ 'url' ] = arguments.url;
 
-    return apiCall( 'POST', '/concepts', params );
+    return apiCall( 'POST', '/concepts', {}, params );
   }
 
   /**
@@ -123,7 +123,7 @@ component displayname="ayliencfc"  {
     else if( !isNull( sentences_percentage) )
       params[ 'sentences_percentage' ] = sentences_percentage;
 
-    return apiCall( 'POST', '/summarize', params );
+    return apiCall( 'POST', '/summarize', {}, params );
   }
 
   /**
@@ -141,7 +141,7 @@ component displayname="ayliencfc"  {
     if ( arguments.url.len() )
       params[ 'url' ] = arguments.url;
 
-    return apiCall( 'POST', '/hashtags', params );
+    return apiCall( 'POST', '/hashtags', {}, params );
   }
 
   // PRIVATE FUNCTIONS
