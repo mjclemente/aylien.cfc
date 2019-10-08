@@ -103,8 +103,32 @@ component displayname="ayliencfc"  {
   }
 
   /**
+  * https://docs.aylien.com/textapi/endpoints/#summarization
+  * @hint Provides an easy way of summarizing a document such as a news article or blog post into a few key sentences. You can specify the length of the summary via the `sentences_number` or `sentences_percentage` parameters. If not summary length is provided, `sentences_number` defaults to 5.
+  */
+  public struct function summarize( string url = '', string title = '', string text = '', numeric sentences_number, numeric sentences_percentage, string language ) {
+    var params = {
+      'language' : language ?: 'auto'
+    };
+
+    if ( arguments.url.len() ) {
+      params[ 'url' ] = arguments.url;
+    } else {
+      params[ 'title' ] = title;
+      params[ 'text' ] = text;
+    }
+
+    if( !isNull( sentences_number ) )
+      params[ 'sentences_number' ] = sentences_number;
+    else if( !isNull( sentences_percentage) )
+      params[ 'sentences_percentage' ] = sentences_percentage;
+
+    return apiCall( 'POST', '/summarize', params );
+  }
+
+  /**
   * https://docs.aylien.com/textapi/endpoints/#hashtag-suggestion
-  * @hint Using Hashtag Suggestion, you can automatically generate a list of highly-relevant hashtags that will help you get more exposure for your content on Social Media.
+  * @hint Generates a list of relevant hashtags from a piece of content.
   */
   public struct function hashtags( string text = '', string url = '', string language ) {
     var params = {
