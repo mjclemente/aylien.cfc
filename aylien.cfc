@@ -5,7 +5,7 @@
 */
 component displayname="ayliencfc"  {
 
-  variables._ayliencfc_version = '0.3.0';
+  variables._ayliencfc_version = '0.5.0';
 
   public any function init(
     string applicationId = '',
