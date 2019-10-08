@@ -19,7 +19,7 @@ This project borrows heavily from the API frameworks built by [jcberquist](https
 Let's analyze some text! Here's how to extract entities:
 
 ```cfc
-aylien = new aylien.aylien( applicationId = 'xxx', applicationKey = 'xxx' );
+aylien = new path.to.aylien( applicationId = 'xxx', applicationKey = 'xxx' );
 
 entities = aylien.entities( url = 'http://bit.ly/intb2018' );
 
