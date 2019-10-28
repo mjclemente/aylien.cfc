@@ -221,8 +221,6 @@ component displayname="ayliencfc"  {
       ? ( '?' & parseQueryParams( queryParams, false ) )
       : '' );
 
-    var requestHeaders = parseHeaders( headers );
-
     cfhttp( url = fullPath, method = httpMethod,  result = 'result' ) {
 
       if ( isJsonPayload( headers ) ) {
